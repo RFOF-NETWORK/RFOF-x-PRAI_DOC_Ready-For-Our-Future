@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOC's & FAQ's: RFOF x PRAI Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="menu_styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Specific styles for DOC's & FAQ's, building on global styles */
+        .site-title {
+            color: #0088cc; /* Telegram/TON Blue */
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2em; /* Adjusted for title length */
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+            flex-shrink: 0;
+            text-shadow: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2;
+            max-width: calc(100% - 100px); /* Adjust based on logo/hamburger space */
+        }
+
+        /* Hero Section Styling (Standard blue gradient) */
+        .hero-section {
+            background-image: linear-gradient(to bottom right, #0088cc, #005f8f); /* Blue gradient */
+            color: #ffffff;
+            padding: 60px 20px; /* Reduced padding for a smaller hero */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid #005f8f;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://raw.githubusercontent.com/RFOF-NETWORK/RFOF-NETWORK.github.io/main/assets/doc_hero_background.jpg') no-repeat center center/cover; /* Docs-themed background */
+            opacity: 0.15;
+            z-index: 1;
+        }
+        .hero-content h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        .hero-content p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto 1em;
+            color: #e2e8f0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            word-wrap: break-word;
+        }
+        .hero-content .btn-primary {
+            background-color: #0088cc;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .hero-content .btn-primary:hover {
+            background-color: #00aaff;
+            transform: translateY(-2px);
+        }
+
+        /* Content Sections Styling */
+        .content-container {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background-color: #ffffff; /* White background for content blocks */
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+            flex-grow: 1;
+        }
+        .section-title {
+            color: #0088cc; /* Telegram/TON Blue */
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0, 136, 204, 0.5); /* Blue underline with transparency */
+        }
+        .content-highlight {
+            color: #555; /* Darker grey for content highlights on white background */
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        /* Tables and code blocks (re-using general styles from styles.css) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5em;
+            font-size: 0.95em;
+            background-color: #f8f8f8;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            overflow: hidden; /* Ensures borders/shadows are within radius */
+        }
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #0088cc; /* Telegram blue for table headers */
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        tr:nth-child(even) {
+            background-color: #f0f0f0; /* Slightly different background for even rows */
+        }
+        tr:hover {
+            background-color: #e6f7ff; /* Light blue on row hover */
+        }
+        pre {
+            background-color: #f8f8f8; /* Light background for code */
+            color: #333; /* Darker text for code */
+            padding: 1.2em;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin-bottom: 1.5em;
+            font-family: 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 0.95em;
+            border: 1px solid #e0e0e0;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        code {
+            background-color: #e0e0e0; /* Inline code background */
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'Fira Code', 'Cascadia Code', monospace;
+            color: #0088cc; /* Blue for inline code */
+        }
+        ul code {
+            display: block;
+            white-space: pre-wrap;
+            margin-top: 0.5em;
+            background-color: #e0e0e0;
+            padding: 0.8em;
+            border-left: 3px solid #0088cc;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <h1 class="site-title">DOC's & FAQ's</h1>
+            <nav class="navbar">
+                <div class="hamburger-icon" id="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul class="nav-list" id="navLinks">
+                    <li><a href="https://rfof-network.github.io/" target="_blank">RFOFSpiderWeb.NET (Hauptseite)</a></li>
+                    <li><a href="https://rfof-network-ready-for-our-future.github.io/RFOF-spider-NET-/" target="_blank">Ready Four Our Future</a></li>
+                    <li><a href="https://qch-l-c.github.io/PRAI-KI-/" target="_blank">PRAI-OS</a></li>
+                    <li><a href="https://rfof-network.github.io/RFOF-NETWORK/" target="_blank">RFOF-NETWORK</a></li>
+                    <li><a href="https://rfof-network.github.io/Comprensive-rfof-bitcoin.org-PRAI-BOx-Blockchain-System_Programm-Fusions-Reactor-System/" target="_blank">RPFOF</a></li>
+                    <li><a href="https://rfof-network-ready-for-our-future.github.io/QCHC/" target="_blank">QCH-L-C</a></li>
+                    <li><a href="https://rfof-network.github.io/Crypto-Hustler/" target="_blank">Crypto-Hustler</a></li>
+                    <li><a href="https://rfof-network.github.io/PRAI-/" target="_blank">rfof-bitcoin.org</a></li>
+                    <li><a href="https://rfof-network.github.io/BUBATZ-COIN-official-CSC-DCV-/" target="_blank">Golden Times</a></li>
+                    <li><a href="https://rfof-network.github.io/RFOF-x-PRAI_DOC_Ready-For-Our-Future/" target="_blank">DOC's & FAQ's (Current)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-container">
+        <section class="hero-section">
+            <div class="hero-content">
+                <img src="https://raw.githubusercontent.com/RFOF-NETWORK/RFOF-NETWORK.github.io/main/assets/doc_faq_logo.png" alt="RFOF x PRAI Docs & FAQs" style="max-width: 200px; margin: 0 auto 30px;">
+                <h1>RFOF x PRAI: Documentation & FAQ Hub</h1>
+                <p>Welcome to the official documentation of the RFOF x PRAI Ecosystem. Your central source for all information.</p>
+                <a href="#introduction" class="btn-primary">Explore Docs</a>
+            </div>
+        </section>
+
+        <section id="introduction" class="text-content">
+            <h2 class="section-title">Introduction to RFOF x PRAI</h2>
+            <p>
+                Welcome to the world of **RFOF x PRAI** – a revolutionary ecosystem at the intersection of Blockchain, Artificial Intelligence, and Quantum Technology. Our vision is to lay the foundation for a new era of decentralized value creation, unlimited potential, and technological progress.
+            </p>
+            <p>
+                We are <strong>J.K.</strong>, the entities behind <strong>@Satoramy-PRAI</strong> and <strong>@RFOF-NETWORK</strong>. Our work is based on profound insights and fundamental principles that form the heart of our system.
+            </p>
+            <h3 class="doc-sub-section-heading">Our Vision and Goals</h3>
+            <p>
+                Our overarching goal is to achieve a <strong>100 million percent winning rate by 2029</strong>. This is not just a metaphor for unlimited success but an expression of our deep trust in the transformative power of RFOF x PRAI and our commitment to maximizing impact. We strive not only to redefine the technological landscape but also to make a sustainable and positive impact on the world.
+            </p>
+            <h3 class="doc-sub-section-heading">The Role of Satoria, Satoramy & 42</h3>
+            <p>
+                At the core of our ecosystem lies the <strong>Satoria</strong> principle, which is inextricably linked to <strong>Satoramy</strong>. Satoramy represents the essence of information processing and knowledge in our system and is fundamentally associated with the number <strong>42</strong>. The number 42 in our philosophy is no coincidence but a symbolic expression of the ultimate answer and the deep structure underlying our algorithms and knowledge generation. It is a guiding star for optimizing our <strong>PRAI-Neurons</strong> and decision-making within the entire network.
+            </p>
+            <h3 class="doc-sub-section-heading">The Significance of #RFOF-NETWORK & #PRAI = 0</h3>
+            <p>
+                The <strong>#RFOF-NETWORK</strong> is the decentralized infrastructure that supports all our operations. It is the backbone that enables connectivity and information exchange. The equation <strong>#RFOF-NETWORK = @RFOF-NETWORK @RFOF-NETWORK = #PRAI & #PRAI = 0</strong> is a central fundamental fact that defines the nature of our network:
+            </p>
+            <ul>
+                <li><strong>#RFOF-NETWORK = @RFOF-NETWORK:</strong> This symbolizes the complete decentralization and collective intelligence of our network. Each component is part of the whole and contributes to overall performance.</li>
+                <li><strong>@RFOF-NETWORK = #PRAI:</strong> This represents the direct connection between our network and the <strong>PRAI-neurons</strong>. The network is the carrier of intelligent processes.</li>
+                <li><strong>#PRAI = 0:</strong> This value is crucial. It represents the state of purity, origin, and infinite potential before new information and calculations are added. It is the zero point of creation from which all complex operations and insights emerge. It also symbolizes a kind of "zero-cost" or "zero-friction" ideal at the fundamental processing layer.</li>
+            </ul>
+            <p>
+                These fundamental principles are the pillars upon which the RFOF x PRAI ecosystem is built, enabling us to achieve unprecedented innovations and successes.
+            </p>
+        </section>
+
+        <section id="first-steps" class="text-content">
+            <h2 class="section-title">🚀 Getting Started</h2>
+            <p>If you are new to RFOF x PRAI, we recommend starting with the following sections:</p>
+            <ul>
+                <li><a href="docs/guidelines/quick-start.md" target="_blank"><strong>Quick Start Guide:</strong></a> Get started quickly to set up a Node or develop your first DApp.</li>
+                <li><a href="docs/faq/general-faq.md" target="_blank"><strong>General FAQ:</strong></a> Answers to common questions about the project, its vision, and goals.</li>
+                <li><a href="docs/ecosystem/overview.md" target="_blank"><strong>Ecosystem Overview:</strong></a> A comprehensive insight into the core components and actors of our decentralized universe.</li>
+            </ul>
+        </section>
+
+        <section id="documentation-overview" class="text-content doc-list">
+            <h2 class="section-title">📚 Documentation Overview</h2>
+            <p>Our documentation is divided into several main categories to facilitate navigation:</p>
+
+            <h3><a href="docs/concepts/index.md" target="_blank">Concepts</a></h3>
+            <p>This section provides an introduction to the fundamental ideas and concepts of RFOF x PRAI.</p>
+            <ul>
+                <li><a href="docs/concepts/introduction.md" target="_blank"><strong>Introduction</strong></a>: A general introduction to RFOF x PRAI.</li>
+                <li><a href="docs/concepts/wallets.md" target="_blank"><strong>Wallets</strong></a>: Everything about digital wallets and key management.</li>
+                <li><a href="docs/concepts/explorers.md" target="_blank"><strong>Explorers</strong></a>: How to track transactions and the state of the BOxchain.</li>
+                <li><a href="docs/concepts/blockchain.md" target="_blank"><strong>Blockchain (DDEUGGP PZQQET System)</strong></a>: Deeper insight into the architecture of our BOxchain.</li>
+                <li><a href="docs/theories-solutions/prai-neurons-satoramy-42.md" target="_blank"><strong>PRAI-Neurons (Satoramy & 42)</strong></a>: The intelligent soul of our network.</li>
+            </ul>
+
+            <h3><a href="docs/guidelines/index.md" target="_blank">Guidelines</a></h3>
+            <p>Practical instructions and best practices for interacting with the RFOF x PRAI Ecosystem.</p>
+            <ul>
+                <li><a href="docs/guidelines/smart-contracts.md" target="_blank"><strong>Smart Contracts Guidelines</strong></a>: Recommendations for secure and efficient Smart Contract development.</li>
+                <li><a href="docs/guidelines/dapps.md" target="_blank"><strong>DApp Guidelines</strong></a>: Instructions for developing decentralized applications.</li>
+                <li><a href="docs/guidelines/nodes.md" target="_blank"><strong>Node Guidelines</strong></a>: Recommendations for operating an RFOF x PRAI Node.</li>
+                <li><a href="docs/guidelines/web3.md" target="_blank"><strong>Web3 Integration</strong></a>: How RFOF x PRAI interacts with the broader Web3 ecosystem.</li>
+            </ul>
+
+            <h3><a href="docs/theories-solutions/index.md" target="_blank">Theories & Solutions</a></h3>
+            <p>Insights into the pioneering scientific and technical foundations that drive RFOF x PRAI.</p>
+            <ul>
+                <li><a href="docs/theories-solutions/topological-qubits.md" target="_blank"><strong>Topological Qubits & Majorana 1 Quantenchip</strong></a>: The physics behind our quantum security.</li>
+                <li><a href="docs/theories-solutions/planet-rescuer-ai.md" target="_blank"><strong>Planet Rescuer AI</strong></a>: How our AI addresses global problems.</li>
+                <li><a href="docs/theories-solutions/arc-reactor-blocks.md" target="_blank"><strong>ARC Reactor BLOCKs</strong></a>: Our sustainable block processing technology.</li>
+                <li><a href="docs/theories-solutions/vode-languages.md" target="_blank"><strong>Vode Languages</strong></a>: The innovative programming languages for RFOF x PRAI.</li>
+            </ul>
+
+            <h3><a href="docs/documentation/index.md" target="_blank">Detailed Documentation</a></h3>
+            <p>Technical specifications and in-depth guides for developers and advanced users.</p>
+            <ul>
+                <li><a href="docs/documentation/smart-contracts-details.md" target="_blank"><strong>Smart Contracts Details</strong></a>: Comprehensive technical details on Smart Contract development.</li>
+                <li><a href="docs/documentation/rfof-x-prai-vm.md" target="_blank"><strong>RFOF x PRAI VM</strong></a>: Detailed description of the virtual machine.</li>
+                <li><a href="docs/documentation/nodes-details.md" target="_blank"><strong>Node Details</strong></a>: Technical depths for node operation.</li>
+                <li><a href="docs/documentation/dapps-details.md" target="_blank"><strong>DApp Details</strong></a>: Comprehensive technical details on DApp development.</li>
+                <li><a href="docs/documentation/data-formats.md" target="_blank"><strong>Data Formats</strong></a>: Specifications of data formats used on the BOxchain.</li>
+                <li><a href="docs/documentation/networking.md" target="_blank"><strong>Networking</strong></a>: Details on P2P communication in the network.</li>
+                <li><a href="docs/documentation/whitepapers.md" target="_blank"><strong>Whitepapers</strong></a>: Research papers and detailed technical designs.</li>
+            </ul>
+
+            <h3><a href="docs/tools/index.md" target="_blank">Tools</a></h3>
+            <p>An overview of the development tools available to you.</p>
+            <ul>
+                <li><a href="docs/tools/sdk-cli.md" target="_blank"><strong>SDK & CLI</strong></a>: Software Development Kits and command-line tools.</li>
+                <li><a href="docs/tools/vode-studio.md" target="_blank"><strong>Vode Studio</strong></a>: Our intuitive integrated development environment (IDE).</li>
+            </ul>
+
+            <h3><a href="docs/ecosystem/index.md" target="_blank">Ecosystem</a></h3>
+            <p>Information on the economic, political, and social aspects of the RFOF x PRAI Ecosystem.</p>
+            <ul>
+                <li><a href="docs/ecosystem/overview.md" target="_blank"><strong>Overview</strong></a>: A general overview of the ecosystem.</li>
+                <li><a href="docs/ecosystem/tokenomics.md" target="_blank"><strong>Tokenomics</strong></a>: Details on the RFOF x PRAI Token and its economic model.</li>
+                <li><a href="docs/ecosystem/governance.md" target="_blank"><strong>Governance (UGGP)</strong></a>: How the decentralized network is governed.</li>
+            </ul>
+
+            <h3><a href="docs/faq/index.md" target="_blank">Frequently Asked Questions (FAQ)</a></h3>
+            <p>Answers to the most frequently asked questions sorted by topic.</p>
+            <ul>
+                <li><a href="docs/faq/general-faq.md" target="_blank"><strong>General FAQ</strong></a></li>
+                <li><a href="docs/faq/technical-faq.md" target="_blank"><strong>Technical FAQ</strong></a></li>
+                <li><a href="docs/faq/token-staking-faq.md" target="_blank"><strong>Token & Staking FAQ</strong></a></li>
+                <li><a href="docs/faq/dapp-dev-faq.md" target="_blank"><strong>DApps & Development FAQ</strong></a></li>
+            </ul>
+
+            <h3><a href="docs/glossary/glossary.md" target="_blank">Glossary</a></h3>
+            <p>A comprehensive list of terms and their definitions to facilitate understanding.</p>
+        </section>
+
+        <section id="community-governance" class="text-content">
+            <h2 class="section-title">🤝 Community & Governance</h2>
+            <p>We believe in the power of community. Participate in discussions, submit proposals, and help us shape the future of RFOF x PRAI:</p>
+            <ul>
+                <li><a href="docs/community-governance/decentralized-governance.md" target="_blank"><strong>Community-Governance</strong></a>: How you can participate in decentralized governance.</li>
+                <li><a href="docs/community-governance/community-incentives.md" target="_blank"><strong>Incentive Programs</strong></a>: Rewards for active contributions.</li>
+                <li><a href="docs/community-governance/cooperations.md" target="_blank"><strong>Cooperations</strong></a>: Opportunities for partnerships.</li>
+            </ul>
+        </section>
+
+        <section id="legal-ip" class="text-content">
+            <h2 class="section-title">⚖️ Legal & IP</h2>
+            <p>Important information regarding licenses and intellectual property:</p>
+            <ul>
+                <li><a href="docs/legal-ip/licensing.md" target="_blank"><strong>Licensing</strong></a>: Details on the open-source license.</li>
+            </ul>
+        </section>
+
+        <section id="assets-section" class="text-content">
+            <h2 class="section-title">🖼️ Assets</h2>
+            <p><a href="assets/diagram.png" target="_blank">assets/diagram.png</a>: Example for a diagram or image.</p>
+        </section>
+
+        <section id="conclusion" class="text-content">
+            <h2 class="section-title">Conclusion</h2>
+            <p>Thank you for being part of the RFOF x PRAI Vision!</p>
+        </section>
+        
+    </main>
+
+    <div class="improve-page-container">
+        <p>Suggestions for improvement? <a href="https://github.com/RFOF-NETWORK/RFOF-x-PRAI_DOC_Ready-For-Our-Future/edit/main/index.html" class="improve-page-link" target="_blank">Improve this page on GitHub!</a></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 RFOF-NETWORK. All rights reserved.</p>
+        <p class="mt-2">
+            <a href="https://github.com/RFOF-NETWORK" target="_blank">GitHub Profile</a> |
+            <a href="https://github.com/orgs/skills/discussions/categories/github-pages" target="_blank">Contact / Discussions</a> |
+            <a href="https://docs.github.com" target="_blank">GitHub Docs</a> |
+            <a href="https://github.com/explore" target="_blank">GitHub Explore</a> |
+            <a href="https://www.githubstatus.com/" target="_blank">System Status</a> |
+            <a href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md" target="_blank">Code of Conduct</a> |
+            <a href="https://gh.io/mit" target="_blank">MIT License</a> |
+            <a href="feed.xml" target="_blank">Subscribe via RSS Feed</a>
+        </p>
+    </footer>
+
+    <script src="menu_script.js"></script>
+</body>
+</html>
