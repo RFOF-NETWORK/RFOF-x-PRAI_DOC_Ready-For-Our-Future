@@ -1,42 +1,22 @@
+// MANIFEST: Nur Menü-Logik, da keine weitere Interaktivität auf dieser Seite vorhanden ist.
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const navList = document.getElementById('navLinks');
 
-    // Toggle for the main mobile menu
     if (hamburger && navList) {
-        hamburger.addEventListener('click', () => {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation(); 
             navList.classList.toggle('active');
             hamburger.classList.toggle('active');
         });
     }
 
-    // Close mobile menu when a link is clicked
-    navList.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                navList.classList.remove('active');
-                if (hamburger) hamburger.classList.remove('active');
-            }
-        });
-    });
-
-    // Close mobile menu if clicked outside
     document.addEventListener('click', (event) => {
-        if (!hamburger.contains(event.target) && !navList.contains(event.target)) {
-            if (navList.classList.contains('active')) {
+        if (navList.classList.contains('active')) {
+            if (!navList.contains(event.target) && !hamburger.contains(event.target)) {
                 navList.classList.remove('active');
-                if (hamburger) hamburger.classList.remove('active');
+                hamburger.classList.remove('active');
             }
         }
     });
-
-    // Handle resize to reset menu state
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-            navList.classList.remove('active');
-            if (hamburger) hamburger.classList.remove('active');
-        }
-    });
-
-    // --- No Search Bar Functionality on this page (DOC's & FAQ's) ---
 });
