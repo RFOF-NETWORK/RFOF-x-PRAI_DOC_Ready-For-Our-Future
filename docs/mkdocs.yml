@@ -1,0 +1,126 @@
+# mkdocs.yml - Konfigurationsdatei für die RFOF x PRAI Dokumentation
+site_name: RFOF x PRAI Dokumentation
+site_url: https://docs.rfof-x-prai.org/ # Beispiel-URL, bitte anpassen
+site_description: Offizielle Dokumentation für das RFOF x PRAI Blockchain-, KI- und Quantencomputing-Ökosystem.
+repo_url: https://github.com/RFOF-NETWORK/RFOF-x-PRAI_DOC_Ready-For-Our-Future # Beispiel-Repo, bitte anpassen
+repo_name: RFOF-x-PRAI_DOC_Ready-For-Our-Future
+edit_uri: edit/main/docs/ # Pfad zum Bearbeiten von Dateien auf GitHub
+
+# Theme-Einstellungen
+theme:
+  name: material
+  custom_dir: overrides # Optional: Für Theme-Anpassungen
+  palette:
+    # Scheme für hellen Modus
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Zum dunklen Modus wechseln
+    # Scheme für dunklen Modus
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Zum hellen Modus wechseln
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes # Ermöglicht index.md in jedem Unterordner
+    - navigation.top # Scroll-to-Top-Button
+    - search.highlight
+    - search.suggest
+    - content.tabs.link # Link-Button für Code-Tabs
+    - content.code.annotate # Code-Annotationen
+    - content.code.copy # Copy-Button für Code-Blöcke
+    # - content.action.edit # Edit button on each page (requires edit_uri)
+
+# Erweitertes Styling (optional, falls overrides/main.html oder .css vorhanden)
+# extra_css:
+#   - stylesheets/extra.css
+
+# Extensions für Markdown
+markdown_extensions:
+  - admonition # Für Warnungen, Notizen etc.
+  - pymdownx.details # Für aufklappbare Details (Admonitions)
+  - pymdownx.superfences # Verbesserte Code-Blöcke
+  - pymdownx.highlight # Syntax-Highlighting
+  - pymdownx.inlinehilite # Inline-Highlighting
+  - pymdownx.snippets # Code-Snippets einfügen
+  - pymdownx.tasklist:
+      custom_checkbox: true # Checklisten
+  - attr_list # Attribute zu Markdown-Elementen hinzufügen
+  - md_in_html # Markdown innerhalb von HTML-Blöcken
+  - toc:
+      permalink: true # Anker-Links für Überschriften
+  - footnotes # Fußnoten
+  - def_list # Definitionslisten
+
+# Plugins
+plugins:
+  - search # Suchfunktion
+  - social # Social Cards generieren (optional)
+
+# Navigationsstruktur (Anpassung der Reihenfolge und Hierarchie)
+nav:
+  - Home: 'index.md' # Dies ist die README.md im Hauptverzeichnis
+  - Konzepte:
+    - introduction.md
+    - wallets.md
+    - explorers.md
+    - blockchain.md
+  - Richtlinien:
+    - quick-start.md
+    - smart-contracts.md
+    - dapps.md
+    - nodes.md
+    - web3.md
+  - Theorien & Lösungen:
+    - topological-qubits.md
+    - planet-rescuer-ai.md
+    - arc-reactor-blocks.md
+    - vode-languages.md
+    - prai-neurons-satoramy-42.md # PRAI Neuronen hierhin verschoben
+  - Detaillierte Dokumentation:
+    - smart-contracts-details.md
+    - rfof-x-prai-vm.md
+    - nodes-details.md
+    - dapps-details.md
+    - data-formats.md
+    - networking.md
+    - whitepapers.md
+  - Tools:
+    - sdk-cli.md
+    - vode-studio.md
+  - Ökosystem:
+    - overview.md
+    - tokenomics.md
+    - governance.md
+  - Häufig gestellte Fragen (FAQ):
+    - general-faq.md
+    - technical-faq.md
+    - token-staking-faq.md
+    - dapp-dev-faq.md
+  - Community & Governance:
+    - decentralized-governance.md
+    - community-incentives.md
+    - cooperations.md
+  - Rechtliches & IP:
+    - licensing.md
+  - Glossar: 'glossary/glossary.md'
+
+# Extra Konfiguration
+# extra:
+#   social:
+#     - icon: fontawesome/brands/github
+#       link: https://github.com/RFOF-NETWORK
+#     - icon: fontawesome/brands/twitter
+#       link: https://twitter.com/RFOF_NETWORK
+#     - icon: fontawesome/brands/discord
+#       link: https://discord.gg/rfof-network
+#     - icon: fontawesome/brands/telegram
+#       link: https://t.me/rfof-network
