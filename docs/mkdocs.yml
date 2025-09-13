@@ -1,6 +1,6 @@
 # mkdocs.yml - Konfigurationsdatei für die RFOF x PRAI Dokumentation
 site_name: RFOF x PRAI Dokumentation
-site_url: https://docs.rfof-x-prai.org/ # Beispiel-URL, bitte anpassen
+site_url: https://rfof-network.github.io/RFOF-x-PRAI_DOC_Ready-For-Our-Future/ # Beispiel-URL, bitte anpassen(wurde bereits angepasst nur um zu merken das hier konflikt war)
 site_description: Offizielle Dokumentation für das RFOF x PRAI Blockchain-, KI- und Quantencomputing-Ökosystem.
 repo_url: https://github.com/RFOF-NETWORK/RFOF-x-PRAI_DOC_Ready-For-Our-Future # Beispiel-Repo, bitte anpassen
 repo_name: RFOF-x-PRAI_DOC_Ready-For-Our-Future
